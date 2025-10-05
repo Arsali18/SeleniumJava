@@ -20,11 +20,12 @@ public class TestCase {
         // Pastikan ChromeDriver ada di PATH kamu
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
-
+    }
 
     @Test
     public void endToEndTest() throws InterruptedException {
-        //Driver SetUp
+
+        //Driver get URL
         driver.get("https://www.saucedemo.com/");
 
         //Input field Username
@@ -41,14 +42,17 @@ public class TestCase {
 
         Thread.sleep(4000); // jeda selama 4 detik
 
+        //find label
         WebElement label = driver.findElement(By.xpath("//span[@class='title']"));
         System.out.println("Title halaman: " + label);
 
         Thread.sleep(2000); // jeda selama 3 detik
 
+        //Klik add to cart
         WebElement cadtButton = driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
         cadtButton.click();
 
+        //klik cart button
         WebElement cartButton = driver.findElement(By.xpath("//a[@class='shopping_cart_link']"));
         cartButton.click();
 
@@ -59,10 +63,15 @@ public class TestCase {
         WebElement checkoutBTN = driver.findElement(By.name("checkout"));
         checkoutBTN.click();
 
+        //input firstname
         WebElement firstName = driver.findElement(By.id("first-name"));
         firstName.sendKeys("Arsali");
+
+        //input last name
         WebElement lastName = driver.findElement(By.xpath("//input[@id='last-name']"));
         lastName.sendKeys("Ali");
+
+        //input ZIP
         WebElement zipField = driver.findElement(By.xpath("//input[@id='postal-code']"));
         zipField.sendKeys("Bojong belung");
 
