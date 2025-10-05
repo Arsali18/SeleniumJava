@@ -20,7 +20,7 @@ public class TestCase {
         // Pastikan ChromeDriver ada di PATH kamu
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
-    }
+
 
     @Test
     public void endToEndTest() throws InterruptedException {
