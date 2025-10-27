@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -51,6 +52,13 @@ public class TestCase {
         //Klik add to cart
         WebElement cadtButton = driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
         cadtButton.click();
+
+        WebElement listProduct = driver.findElement(By.xpath("//div[@class='inventory_list']"));
+        Select addToCart = new Select(listProduct);
+
+        System.out.println("Ini list product");
+        System.out.println("List Product: "+ addToCart.getOptions().size());
+
 
         //klik cart button
         WebElement cartButton = driver.findElement(By.xpath("//a[@class='shopping_cart_link']"));
